@@ -1,0 +1,12 @@
+<html>
+    <title></title>
+    <body>
+        {% for post in posts %}
+            <p>
+                {{ post.title }}<br/>
+                {{ post.body }}<br/>
+                {{ post.datetime }}
+            </p>
+        {% endfor %}
+    </body>
+</html>
