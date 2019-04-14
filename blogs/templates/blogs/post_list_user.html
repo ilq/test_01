@@ -1,12 +1,16 @@
-<html>
-    <title></title>
-    <body>
-        {% for post in posts %}
-            <p>
-                {{ post.title }}<br/>
-                {{ post.body }}<br/>
-                {{ post.datetime }}
-            </p>
-        {% endfor %}
-    </body>
-</html>
+{% extends 'blogs/base.html' %}
+
+{% block title%} All Posts {% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        <p>
+            {{ post.title }}<br/>
+            {{ post.body }}<br/>
+<!--            <a href="{% url 'posts_user_url' username=post.blog.author.username %}">{{ post.blog.author.username }}</a><br/>-->
+            <a href="{{ post.get_absolute_url }}">{{ post.blog.author.username }}</a><br/>
+
+            {{ post.datetime }}
+        </p>
+    {% endfor %}
+{% endblock %}
